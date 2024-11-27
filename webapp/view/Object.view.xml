@@ -1,26 +1,24 @@
-<mvc:View
-	controllerName="zjblessons.ControlTaskStrelnik.controller.Object"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc">
+<mvc:View controllerName="zjblessons.ControlTaskStrelnik.controller.Object" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
 
 	<Page>
 		<content>
-            <IconTabBar id="iconTabBar" expanded="false">
-                <items>
-                    <IconTabFilter
-                        key="tab1"
-                        text="Информация"
-                        icon="sap-icon://information">
-                    </IconTabFilter>
-                    <IconTabFilter
-                        key="tab2"
-                        text="Дополнительно"
-                        icon="sap-icon://attachment">
-                    </IconTabFilter>
-                </items>
-            </IconTabBar>
-        </content>
-<!-- {MaterialDescription} -->
+			<IconTabBar id="iconTabBar" expanded="false">
+				<items>
+					<IconTabFilter key="tab1" text="Информация" icon="sap-icon://information">
+
+					</IconTabFilter>
+					<IconTabFilter key="tab2" text="Дополнительно" icon="sap-icon://attachment">
+						<content>
+							<Panel expandable="true" expanded="true" headerText="Группы">
+							</Panel>
+							<Panel expandable="true" expanded="true" headerText="Подгруппы">
+							</Panel>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<!-- {MaterialDescription} -->
 	</Page>
 
 </mvc:View>
