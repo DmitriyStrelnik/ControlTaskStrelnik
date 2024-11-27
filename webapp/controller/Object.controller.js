@@ -3,11 +3,13 @@ sap.ui.define([
 		"zjblessons/ControlTaskStrelnik/controller/BaseController",
 		"sap/ui/model/json/JSONModel",
 		"sap/ui/core/routing/History",
+		"sap/m/MessageToast",
 		"zjblessons/ControlTaskStrelnik/model/formatter"
 	], function (
 		BaseController,
 		JSONModel,
 		History,
+		MessageToast,
 		formatter
 	) {
 		"use strict";
@@ -49,6 +51,7 @@ sap.ui.define([
 
 			_onObjectMatched : function (oEvent) {
 				var sObjectId =  oEvent.getParameter("arguments").objectId;
+				MessageToast.show("Материал с ID: " + sObjectId);
 				this.getModel().metadataLoaded().then( function() {
 					var sObjectPath = this.getModel().createKey("zjblessons_base_Materials", {
 						MaterialID :  sObjectId
