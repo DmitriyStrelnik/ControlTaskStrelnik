@@ -112,6 +112,16 @@ sap.ui.define([
 					}
 				});
 			},
+			onShowMaterialIDPress: function () {
+				var oTable = this.byId("table");
+				var oSelectedContext = oTable.getContextByIndex(oTable.getSelectedIndex());
+				var sMaterialID = oSelectedContext.getProperty("MaterialID");
+				sap.m.MessageBox.information("Выбранный MaterialID: " + sMaterialID, {
+					title: "Информация",
+					actions: [sap.m.MessageBox.Action.OK]
+				});
+
+			},
 
 		});
 	}

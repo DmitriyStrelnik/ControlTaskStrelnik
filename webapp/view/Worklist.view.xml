@@ -8,7 +8,7 @@
 		<m:customHeader>
 		</m:customHeader>
 		<m:content>
-			<Table id="table"  width="auto"  rows="{/zjblessons_base_Materials}">
+			<Table id="table"  width="auto"  rows="{/zjblessons_base_Materials}"  selectionMode="Single">
 				<extension>
                     <m:OverflowToolbar>
                         <m:Title text="Материалы" />
@@ -17,6 +17,10 @@
                             icon="sap-icon://person-placeholder"
                             text="Студент"
                             press=".onStudentButtonPress" />
+						<m:Button
+                            icon="sap-icon://message-information"
+                            text="ID Материала"
+                            press=".onShowMaterialIDPress" />
                     </m:OverflowToolbar>
                 </extension>
 				<columns>
