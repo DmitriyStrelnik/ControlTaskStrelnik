@@ -36,6 +36,12 @@
        				 <m:Link text="{MaterialDescription}"/>
    				 	</template>
 					</Column>
+					<Column width="11rem">
+                        <m:Label text="Детали" />
+                        <template>
+                            <m:Button text="Перейти" press="._showObject" />
+                        </template>
+                    </Column>
 				</columns>
 			</Table>
     	</m:content>

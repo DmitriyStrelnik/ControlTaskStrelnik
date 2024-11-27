@@ -86,9 +86,12 @@ sap.ui.define([
 			},
 
 
-			_showObject : function (oItem) {
+			_showObject : function (oEvent) {
+				var oButton = oEvent.getSource();
+   				var oContext = oButton.getBindingContext();
+    			var sMaterialID = oContext.getProperty("MaterialID");
 				this.getRouter().navTo("object", {
-					objectId: oItem.getBindingContext().getProperty("MaterialID")
+					objectId: sMaterialID
 				});
 			},
 
@@ -122,6 +125,7 @@ sap.ui.define([
 				});
 
 			},
+
 
 		});
 	}
