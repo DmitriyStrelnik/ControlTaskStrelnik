@@ -99,7 +99,19 @@ sap.ui.define([
 				if (aTableSearchState.length !== 0) {
 					oViewModel.setProperty("/tableNoDataText", this.getResourceBundle().getText("worklistNoDataWithSearchText"));
 				}
-			}
+			},
+			onStudentButtonPress: function () {
+				var oTable = this.byId("table");
+    			var iSelectedIndex = oTable.getSelectedIndex();
+        		var oContext = oTable.getContextByIndex(iSelectedIndex);
+        		var sCreatedByFullName = oContext.getProperty("CreatedByFullName");
+				sap.m.MessageBox.information(sCreatedByFullName, {
+					title: "Информация",
+					actions: [sap.m.MessageBox.Action.OK],
+					onClose: function () {
+					}
+				});
+			},
 
 		});
 	}

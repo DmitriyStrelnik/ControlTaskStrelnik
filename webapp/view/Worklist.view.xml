@@ -11,6 +11,12 @@
 			<Table id="table"  width="auto"  rows="{/zjblessons_base_Materials}">
 				<extension>
                     <m:OverflowToolbar>
+                        <m:Title text="Материалы" />
+                        <m:ToolbarSpacer />
+                        <m:Button
+                            icon="sap-icon://person-placeholder"
+                            text="Студент"
+                            press=".onStudentButtonPress" />
                     </m:OverflowToolbar>
                 </extension>
 				<columns>
