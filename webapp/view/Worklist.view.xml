@@ -4,11 +4,15 @@
 	xmlns:mvc="sap.ui.core.mvc"
 	xmlns="sap.ui.table">
 
-	<m:Page>
+	<m:Page>	
 		<m:customHeader>
 		</m:customHeader>
 		<m:content>
 			<Table id="table"  width="auto"  rows="{/zjblessons_base_Materials}">
+				<extension>
+                    <m:OverflowToolbar>
+                    </m:OverflowToolbar>
+                </extension>
 				<columns>
 					<Column width="11rem">
     				<m:Label text="Material Text" />
