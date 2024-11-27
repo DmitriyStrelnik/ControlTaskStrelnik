@@ -25,7 +25,8 @@ sap.ui.define([
 					oViewModel = new JSONModel({
 						busy : true,
 						delay : 0,
-						editable: false
+						editable: false,
+						selectedGroupID: null
 					});
 
 				this.getRouter().getRoute("object").attachPatternMatched(this._onObjectMatched, this);
@@ -103,6 +104,30 @@ sap.ui.define([
 				oResourceBundle.getText("shareSendEmailObjectSubject", [sObjectId]));
 				oViewModel.setProperty("/shareSendEmailMessage",
 				oResourceBundle.getText("shareSendEmailObjectMessage", [sObjectName, sObjectId, location.href]));
+			},
+			_bindGroupsTable: function () {
+				var oGroupsTable = this.byId("groupsTable");
+				var sGroupID = this.getView().getBindingContext().getProperty("GroupID");
+				var oBindingInfo = {
+					path: "/zjblessons_base_Groups",
+					filters: [new Filter("GroupID", FilterOperator.EQ, sGroupID)]
+				};
+				oGroupsTable.bindItems(oBindingInfo);
+			},
+			onGroupSelectionChange: function (oEvent) {
+				var oSelectedItem = oEvent.getParameter("listItem");
+				var oContext = oSelectedItem.getBindingContext();
+				var sGroupID = oContext.getProperty("GroupID");
+				this.getView().getModel("viewModel").setProperty("/selectedGroupID", sGroupID);
+				this.byId("noGroupSelectedText").setVisible(false);
+				this.byId("subGroupsTable").setVisible(true);
+
+				var oSubGroupsTable = this.byId("subGroupsTable");
+				var oBindingInfo = {
+					path: "/zjblessons_base_SubGroups",
+					filters: [new Filter("GroupID", FilterOperator.EQ, sGroupID)]
+				};
+				oSubGroupsTable.bindItems(oBindingInfo);
 			}
 
 		});

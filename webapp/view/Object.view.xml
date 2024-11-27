@@ -10,15 +10,79 @@
 					<IconTabFilter key="tab2" text="Дополнительно" icon="sap-icon://attachment">
 						<content>
 							<Panel expandable="true" expanded="true" headerText="Группы">
-							</Panel>
-							<Panel expandable="true" expanded="true" headerText="Подгруппы">
-							</Panel>
+            <content>
+                <Table
+                    id="groupsTable"
+                    mode="SingleSelectMaster"
+                    selectionChange=".onGroupSelectionChange">
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Список групп" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <HBox>
+                                <Text text="Group ID" />
+                            </HBox>
+                        </Column>
+                        <Column>
+                            <HBox>
+                                <Text text="Group Text" />
+                            </HBox>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{GroupID}" />
+                                <Text text="{GroupText}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+        </Panel>
+        <Panel expandable="true" expanded="true" headerText="Подгруппы">
+            <content>
+                <Text id="noGroupSelectedText" text="Выберите группу" visible="true" />
+                <Table
+                    id="subGroupsTable"
+                    mode="SingleSelectMaster"
+                    visible="false">
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="Список подгрупп" />
+                        </Toolbar>
+                    </headerToolbar>
+                    <columns>
+                        <Column>
+                            <HBox>
+                                <Text text="SubGroup ID" />
+                            </HBox>
+                        </Column>
+                        <Column>
+                            <HBox>
+                                <Text text="SubGroup Text" />
+                            </HBox>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{SubGroupID}" />
+                                <Text text="{SubGroupText}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+        </Panel>
 						</content>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>
 		</content>
-		<!-- {MaterialDescription} -->
 	</Page>
 
 </mvc:View>
