@@ -1,14 +1,30 @@
 <mvc:View
 	controllerName="zjblessons.ControlTaskStrelnik.controller.Worklist"
-	xmlns="sap.m"
-	xmlns:mvc="sap.ui.core.mvc">
+	xmlns:m="sap.m"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.ui.table">
 
-	<Page
-		id="page">
-		<customHeader>
-		</customHeader>
-		<content>
-    	</content>
-	</Page>
+	<m:Page>
+		<m:customHeader>
+		</m:customHeader>
+		<m:content>
+			<Table id="table"  width="auto"  rows="{/zjblessons_base_Materials}">
+				<columns>
+					<Column width="11rem">
+    				<m:Label text="Material Text" />
+    				<template>
+       				 <m:Link text="{MaterialText}"/>
+   				 	</template>
+					</Column>
+					<Column width="11rem">
+    				<m:Label text="Material Description" />
+    				<template>
+       				 <m:Link text="{MaterialDescription}"/>
+   				 	</template>
+					</Column>
+				</columns>
+			</Table>
+    	</m:content>
+	</m:Page>
 
 </mvc:View>
